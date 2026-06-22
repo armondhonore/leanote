@@ -1,0 +1,18 @@
+application:
+  name: leanote
+  pods:
+  - name: app
+    image: nickg/leanote:latest
+    path: /
+    servicePorts:
+    - 9000
+    vars:
+      MONGO_URL: "mongodb://mongo.pod:27017/leanote"
+  - name: mongo
+    image: mongo:6
+    servicePorts:
+    - 27017
+    volumes:
+    - name: leanote-mongo
+      mountPath: /data/db
+      size: 10Gi
