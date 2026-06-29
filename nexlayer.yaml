@@ -2,14 +2,14 @@ application:
   name: leanote
   pods:
   - name: app
-    image: nickg/leanote:latest
+    image: mirror.gcr.io/nickg/leanote:latest
     path: /
     servicePorts:
     - 9000
     vars:
       MONGO_URL: "mongodb://mongo.pod:27017/leanote"
   - name: mongo
-    image: mongo:6
+    image: mirror.gcr.io/library/mongo:6
     servicePorts:
     - 27017
     volumes:
