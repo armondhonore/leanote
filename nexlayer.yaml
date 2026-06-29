@@ -2,17 +2,11 @@ application:
   name: leanote
   pods:
   - name: app
-    image: mirror.gcr.io/nickg/leanote:latest
+    image: axboy/leanote:latest
     path: /
     servicePorts:
     - 9000
-    vars:
-      MONGO_URL: "mongodb://mongo.pod:27017/leanote"
-  - name: mongo
-    image: mirror.gcr.io/library/mongo:6
-    servicePorts:
-    - 27017
     volumes:
-    - name: leanote-mongo
+    - name: leanote-data
       mountPath: /data/db
       size: 10Gi
